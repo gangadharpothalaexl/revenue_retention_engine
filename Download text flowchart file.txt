@@ -1,0 +1,316 @@
+REVENUE RECOVERY ENGINE: END-TO-END CLOSED LOOP TEXT FLOWCHART
+================================================================
+
+Purpose:
+This flow shows how the Revenue Recovery Engine covers every customer,
+validates data, assigns lifecycle segments, calculates risk and revenue
+opportunity, chooses the best treatment journey, executes outreach, handles
+retry loops, measures outcomes, and continuously updates the AI model.
+
+
+MAIN CLOSED-LOOP FLOW
+=====================
+
+START
+  |
+  v
+Customer enters Dealer Database
+  |
+  v
+Build Customer 360 Profile
+(DMS + CRM + Repair Orders + Warranty + Campaign + Complaint + CSI/NPS)
+  |
+  v
+Validate Customer Information
+(Owner, VIN, Contactability, Consent, Service History, Warranty Status)
+  |
+  +-------------------------------+
+  |                               |
+  v                               v
+Valid Data?                      No
+  |                               |
+ Yes                    Correct / Clean / Reclassify Data
+  |                     (Duplicate Profile, Ownership Change,
+  |                      Missing Contact, Invalid VIN,
+  |                      Missing Service History)
+  |                               |
+  +---------------< Reprocess Customer 360 <---------------+
+  |                                                         |
+  v                                                         |
+Assign Primary Lifecycle Segment                            |
++--------------------------------------------------------+  |
+| Warranty / Free Service                                |  |
+| First Paid Service Due                                 |  |
+| Healthy Regular Service                                |  |
+| Medium-Risk Monitoring                                 |  |
+| Lapsed / Dormant                                       |  |
+| Quality Issue / Complaint Risk                         |  |
+| Ownership / Data Validation                            |  |
++--------------------------------------------------------+  |
+  |                                                         |
+  v                                                         |
+AI Calculates Risk and Revenue Opportunity                  |
+(Churn Score + Revenue at Risk + Recoverable Revenue)       |
+  |                                                         |
+  v                                                         |
+Root Cause / Driver Analysis                                |
+(Why is the customer at risk?                               |
+ Why is revenue leaking?                                    |
+ Is this caused by customer behavior or dealer process?)    |
+  |                                                         |
+  v                                                         |
+Select Best Treatment Journey                               |
+  |                                                         |
+  +----------------+----------------+----------------+----------------+-------------------------+
+  |                |                |                |                |                 	|
+  v                v                v                v                v				|
+First Paid      Quality Issue     Healthy /        Lapsed /        Ownership /			|
+Service         Recovery          Medium Risk      Dormant         Data Validation		|	
+  |                |                |                |                |				|
+  v                v                v                v                v				|
+Package         Goodwill +        Loyalty /        Win-back        Data Cleanup +		|
+Campaign        Service Manager   Preventive       Campaign        Validation +			|
+3Y / 5Y         Callback          Engagement       Offer           Campaign Suppression		|	
+  |                |                |                |                |				|
+  +----------------+----------------+----------------+----------------+				|	
+                  |										|
+                  v										|
+Manager Approval Needed?									|
+                  |										|
+        +---------+---------+									|
+        |                   |									|
+        v                   v									|
+       Yes                  No									|
+        |                   |									|
+        v                   v									|
+Approval Workflow       Auto Execute								|
+(Approve / Hold /       (Low-cost reminder,							|
+ Reject / Escalate)      normal engagement,							|
+                         service reminder)							|
+        |                   |									|
+        +---------+---------+									|
+                  |										|
+                  v										|
+Execute Outreach / Action									|
+(SMS / Email / Call / WhatsApp / Advisor Task / DMS Booking / CRM Case)				|
+                  |										|
+                  v										|
+Customer Books Service?										|
+                  |										|
+        +---------+---------+									|
+        |                   |									|
+        v                   v									|
+       Yes                  No									|
+        |                   |									|
+        v                   v									|
+Revenue Recovered       Retry Strategy								|
+Service Completed       (Change Offer / Channel / Timing /					|
+Customer Retained        Advisor Follow-up / Service Manager Call)				|
+        |                   |									|
+        |                   +--------> Back to Select Best Treatment Journey--------------------+
+        |
+        v
+Dealer Root Cause Detected?
+                  |
+        +---------+---------+
+        |                   |
+        v                   v
+       Yes                  No
+        |                   |
+        v                   v
+Dealer Corrective       Continue Customer-Level
+Action                  Monitoring
+(Inspection Checklist,
+ Repair Validation,
+ Advisor Training,
+ Repeat Repair Escalation,
+ Delivery Communication Fix)
+        |
+        v
+Measure Outcomes
+(ROI, Revenue Recovery, Retention Lift, CSI/NPS Improvement,
+ Churn Reduction, Repeat Repair Reduction, Complaint Resolution)
+        |
+        v
+AI Learns and Updates Model
+(Segmentation Rules, Risk Thresholds, NBA Logic,
+ Offer Strategy, Channel Timing, Dealer Root Cause Rules)
+        |
+        +---------------------> Back to AI Risk and Opportunity Engine
+        |
+        v
+END / CONTINUOUS LEARNING LOOP
+
+
+ABC CHEVROLET EXAMPLE: 18,000 CUSTOMER JOURNEY
+==============================================
+
+Total Managed Customers: 18,000
+Coverage Rate: 100%
+Unclassified Customers: 0
+Revenue at Risk: $2.8M
+Recoverable Revenue: $1.1M
+
+Customer Segmentation:
+
+1. Warranty / Free Service
+   Count: 2,500
+   Treatment: Onboarding, education, trust building, future paid-service preparation
+
+2. First Paid Service Due
+   Count: 1,200
+   Treatment: 3-year / 5-year service package campaign, service reminder, advisor follow-up
+
+3. Healthy Regular Service
+   Count: 5,500
+   Treatment: Loyalty engagement, seasonal reminders, normal lifecycle communication
+
+4. Medium-Risk Monitoring
+   Count: 2,000
+   Treatment: Preventive reminders, satisfaction check, soft offer, risk monitoring
+
+5. Lapsed / Dormant
+   Count: 3,500
+   Treatment: Win-back campaign, free health check, pickup/drop offer, transparent pricing message
+
+6. Quality Issue / Complaint Risk
+   Count: 2,000
+   Treatment: Goodwill recovery, free inspection, service manager callback, dealer corrective action
+
+7. Ownership / Data Validation
+   Count: 1,300
+   Treatment: Validate owner, vehicle, contactability, duplicates; suppress wrong campaigns
+
+Total Segmented Customers: 18,000
+Unclassified Customers: 0
+
+
+TREATMENT JOURNEY FLOW
+======================
+
+Customer Segment Identified
+  |
+  v
+Risk and Opportunity Calculated
+  |
+  v
+Best Treatment Journey Selected
+  |
+  +---------------------------+----------------------------+---------------------------+
+  |                           |                            |                           |
+  v                           v                            v                           v
+Package Campaign          Service Recovery             Loyalty Engagement          Data Validation
+(First Paid / Lapsed)     (Quality Issue)              (Healthy / Medium Risk)     (Ownership Issue)
+  |                           |                            |                           |
+  v                           v                            v                           v
+Manager Approval?         Manager Approval?             Auto / Soft Engagement      Data Steward Review
+  |                           |                            |                           |
+  v                           v                            v                           v
+Execute Campaign          Create CRM Case               Send Reminder               Clean Profile
+Advisor Follow-up         Service Manager Callback      Track Engagement            Reclassify Customer
+  |                           |                            |                           |
+  +---------------------------+----------------------------+---------------------------+
+                              |
+                              v
+                      Measure Outcome
+                              |
+                              v
+                      Feed Outcome Back to AI
+
+
+KEY FEEDBACK LOOPS
+==================
+
+1. DATA QUALITY LOOP
+--------------------
+Invalid Data / Unclassified Customer
+  |
+  v
+Correct / Clean / Reclassify
+  |
+  v
+Reprocess Customer 360
+  |
+  v
+Validate Again
+  |
+  v
+Coverage = 100%
+
+Business Purpose:
+Ensures no customer is missed and avoids wrong outreach.
+
+
+2. RE-ENGAGEMENT LOOP
+---------------------
+Customer Does Not Book Service
+  |
+  v
+Retry Strategy
+(Change offer, channel, timing, or advisor follow-up)
+  |
+  v
+Back to Best Treatment Journey
+  |
+  v
+Execute Outreach Again
+
+Business Purpose:
+Prevents losing customers after one failed attempt.
+
+
+3. DEALER ROOT CAUSE LOOP
+-------------------------
+Dealer Process Issue Detected
+(Repeat repair, delay, poor communication, complaint, bad service experience)
+  |
+  v
+Create Dealer Corrective Action
+  |
+  v
+Inspection Checklist / Repair Validation / Advisor Training / Escalation
+  |
+  v
+Monitor CSI, NPS, Repeat Repair, Complaint Resolution
+  |
+  v
+Improve Dealer Service Quality
+
+Business Purpose:
+Fixes the reason customers are leaving, not just the campaign response.
+
+
+4. MODEL LEARNING LOOP
+----------------------
+Campaign Outcome Captured
+  |
+  v
+Measure ROI, Retention, Revenue Recovery, Churn Reduction
+  |
+  v
+Update Risk Model, NBA Logic, Offer Rules, Channel Timing
+  |
+  v
+Improve Future Recommendations
+  |
+  v
+Back to AI Risk and Opportunity Engine
+
+Business Purpose:
+Makes the Revenue Recovery Engine continuously improve over time.
+
+
+MANAGER-READY SUMMARY
+=====================
+
+The Revenue Recovery Engine works as a closed-loop decision system. It starts
+with complete customer coverage, validates customer and vehicle data, assigns
+each customer to one primary lifecycle segment, calculates risk and revenue
+opportunity, selects the best treatment journey, executes the approved outreach
+or advisor action, measures business outcomes, and continuously updates the AI
+model.
+
+The key strength of the flow is that no customer is missed. Invalid data goes
+into a data quality loop, non-responding customers go into a re-engagement loop,
+dealer service issues go into a root-cause improvement loop, and all outcomes
+feed back into a model learning loop.

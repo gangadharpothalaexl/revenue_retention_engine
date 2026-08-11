@@ -1,0 +1,82 @@
+Create an Excel (.xlsx) flowchart on a single sheet titled "Flowchart" that shows this 
+end-to-end process as native, editable cells — not an image. Use merged cells as boxes, 
+thin borders, fill colors, and wrapped text. No formulas needed.
+
+LAYOUT
+- Columns B–K = full-width box (10 cols). Split into left half (B–F) and right half (G–K) 
+  for side-by-side branch boxes. Keep columns A and L as narrow margins.
+- Each box = 2 stacked merged rows: a bold title row and a smaller subtitle row, same fill 
+  color, both bordered.
+- Between boxes, add a 1-row arrow cell (↓ character, centered, gray).
+- Font: Arial throughout. Hide gridlines. Freeze the header rows.
+
+COLOR KEY (apply by category, and print the key at the top)
+- Gray/light gray = data & tracking steps
+- Teal = intelligence & checks (including decision boxes)
+- Amber = decision & action steps
+- Navy = execution/closing milestones (white text)
+- Coral = data-cleanup, suppression, or exception-handling steps
+- Purple = measurement/experimentation steps (holdout, causal lift)
+
+CONTENT, IN ORDER
+
+1. Title: "Revenue Recovery Engine" + subtitle "End-to-end decision intelligence loop — 
+   from dealer selection to continuous learning" + the color key line.
+2. Box: Dealer selected / Manager picks GM dealership (gray)
+3. Box: Customer 360 profile built / DMS, CRM, RO, warranty, complaint, CSI — subtitle 
+   note: "Triggered in real time per service event, reconciled nightly in batch" (gray)
+4. DECISION: Valid data? / Owner, VIN, contact checked (teal)
+   - NO → box: Clean, reclassify & re-validate / Duplicate, ownership, or contact issues 
+     found (coral) → italic note: "↩ loops back to 'Customer 360 profile built'"
+   - YES → continues down
+5. Box: Assign lifecycle segment / One of 7 segments, every customer covered (teal light)
+6. Box: AI calculates risk & revenue opportunity / Churn score + revenue at risk + 
+   recoverable (teal light)
+7. Box: Root cause / driver analysis / Why customer is at risk, why revenue leaks (teal light)
+8. [NEW] Box: Prioritize & rank / Revenue at risk × likelihood to respond, capped to 
+   advisor capacity (amber light)
+9. [NEW] DECISION: Assign to holdout group? / Random sample held out for causal 
+   measurement (purple)
+   - YES → box: Holdout — no treatment / Monitored like everyone else, no outreach sent 
+     (purple light) → joins the measurement step directly
+   - NO → continues down
+10. Box: Select best treatment journey / One of five treatment paths chosen (amber light)
+11. [NEW] DECISION: Consent & suppression check passed? / Opt-out, do-not-call, recent 
+    contact, legal hold (coral)
+    - NO → box: Suppress & log / No outreach sent, reason recorded (coral light) → joins 
+      the measurement step directly
+    - YES → continues down
+12. DECISION: Approval needed? / Auto-approve below $ / risk threshold, else manager 
+    review (amber)
+    - NO (below threshold) → box: Auto-execute / Low-cost reminder, routine engagement, 
+      sampled for audit (amber light)
+    - YES (above threshold) → box: Approval workflow / Manager approves, holds, or 
+      escalates (amber light)
+    - both merge down
+13. Box: Outreach execution / SMS, email, call, WhatsApp, advisor, DMS (navy, white text)
+14. DECISION: Books service? / Outcome of outreach (teal)
+    - NO → box: Retry strategy / New offer, channel, or timing (gray)
+      → [NEW] DECISION: Retry limit reached? / Cap at 3 attempts (coral)
+         - NO → italic note: "↩ loops back to 'Select best treatment journey'"
+         - YES → box: Escalate to human / Hand off to advisor, stop automated outreach 
+           (coral light) → joins the measurement step directly
+    - YES → box: Revenue recovered / Service completed, customer retained (teal light) 
+      → continues down
+15. DECISION: Dealer root cause? / Service-side issue found (teal)
+    - NO → box: Continue monitoring / Customer-level tracking continues (gray)
+    - YES → [NEW] DECISION: Recurring pattern? / Same advisor, bay, or defect code 
+      repeating (amber)
+         - NO → box: Log one-off issue / No systemic action needed (gray)
+         - YES → box: Corrective action & adjust risk model / Checklist, repair 
+           validation, training — similar profiles reweighted (amber light)
+    - both merge down
+16. Box: Measure ROI, retention, CSI/NPS — vs. holdout group / Revenue recovery and 
+    churn reduction reported as lift over the holdout, not raw counts (purple)
+17. Box: AI learns & updates model / Segmentation, risk thresholds, NBA, offer rules, 
+    root-cause pattern weighting (amber light) → italic note: "↻ feeds back into 'AI 
+    calculates risk & revenue opportunity' — the model-learning loop"
+18. Box: End / continuous learning loop / Loop repeats for every dealer, every cycle 
+    (navy, white text) → closing italic caption: "↻ This cycle runs continuously — every 
+    outcome, including the holdout comparison, retrains the model for the next customer."
+
+Set print area to fit one page wide, portrait, so it prints/exports cleanly.

@@ -1,0 +1,216 @@
+Based on the discussion, these are the key pointers/advice given for the project:
+
+1. Rework the overall solution flow first
+
+* Do not continue building the UI immediately.
+* Create a strawman/conceptual flow first showing:
+    * Entry point
+    * Customer segmentation
+    * Risk identification
+    * Customer 360
+    * Recommended actions
+    * Outreach/recovery
+    * Outcome tracking
+* This can be a PPT, Excel, flowchart, or even a hand-drawn diagram/photo.
+* The objective is to ensure the complete journey is logically connected before more UI development.
+
+2. Redesign the first page / landing page
+
+* The current first page is not making good use of the available real estate.
+* It looks more like a basic report than a solution/application.
+* Make it more dynamic and action-oriented with:
+    * Customer risk segments
+    * High/medium/low-risk distribution
+    * Key business KPIs
+    * Dynamic charts
+    * Important insights/actions
+* The first screen should immediately answer: “What should I focus on?”
+
+3. Replace the current customer tab with segmentation
+
+Instead of immediately showing individual customers:
+
+* Start with customer segments/portfolios.
+* Examples:
+    * High Risk
+    * Medium Risk
+    * Low Risk
+    * Other relevant business segments
+* Show metrics at the segment level, such as:
+    * Number of customers
+    * Risk %
+    * Recovery opportunity
+    * Conversion/recovery rate
+    * Relevant business KPIs
+
+4. Use risk as the first filter
+
+The proposed customer navigation should be:
+
+Risk Segment → Customer Name → Customer 360
+
+For example:
+
+* Select High Risk
+* System shows the relevant customer population
+* Select a customer
+* Then open that customer’s detailed Customer 360
+
+This is similar to filtering in Excel and should be intuitive.
+
+5. Customer 360 should be used for individual-level understanding
+
+Once a customer is selected, show:
+
+* Customer attributes
+* Risk score
+* Relevant history
+* Products/services
+* Previous interactions
+* Recovery/outreach history
+* Other information needed to understand the customer
+
+The purpose is to answer:
+
+“What should I do for this customer?”
+
+6. Create a separate “Suggested Actions / Next Best Action” layer
+
+This was one of the biggest recommendations.
+
+The solution should identify:
+
+* What action to take
+* Which customer segment
+* Which channel
+* Which product/service
+* When to contact
+* What message/offer to use
+* Potentially why the action is recommended
+
+This should not be buried inside Customer 360.
+
+7. Do not define actions at individual-customer level
+
+A major point raised was that individual-level action management will not be scalable.
+
+Instead:
+
+* Define rules/actions at segment level
+* Example:
+    * High-risk customers → SMS + email campaign
+    * Specific segment → particular offer
+    * Another segment → dealer follow-up
+* Once the rule is defined, it should automatically apply to all customers belonging to that segment.
+
+So the model should be:
+
+Segment → Rule → Action/Campaign → Customers
+
+rather than:
+
+Customer → Manually decide action
+
+8. Recovery should be treated as a separate solution area
+
+The discussion suggested that Recovery itself is large enough to become a separate solution/module.
+
+If included in the current story, keep it clearly structured:
+
+* Recovery opportunities
+* Actions taken
+* Outreach
+* Recovery outcomes
+* Business impact
+
+Eventually, this could become a dedicated Recovery Solution.
+
+9. Track recovery/outreach outcomes
+
+The recovery section should track execution and results, including:
+
+* Number of SMS sent
+* Number of emails sent
+* Outreach volume
+* Tickets/actions executed
+* Execution time
+* Follow-ups in the last 3 days
+* Customer response
+* Recovery outcome
+* Business impact
+
+The goal is to answer:
+
+“What actions did we take, and what did we achieve?”
+
+10. Keep business logic and intelligence as the core
+
+The UI is only the facade/interface.
+
+The important part is:
+
+* Why the customer is classified as high risk
+* Why a particular action is recommended
+* What intelligence/model supports the recommendation
+* Why this matters to dealers/business users
+* How the solution converts data into a decision
+
+The project should therefore be business-intelligence-led, not UI-led.
+
+11. Make the solution scalable and automation-ready
+
+The design should not look like a one-time report.
+
+It should be built as a solution layer that can later be automated and expanded:
+
+* Model/risk layer
+* Segmentation layer
+* Decision/action layer
+* Execution layer
+* Outcome layer
+
+The architecture should allow additional campaigns, segments, products, and actions to be added later.
+
+12. Focus on portfolio/segment-level decision making
+
+For management and business users:
+
+* Avoid showing too much individual-level detail initially.
+* Focus on portfolio/segment-level insights and actions.
+* Individual customer details should be available through filtering/drill-down.
+
+This makes the solution more manageable and usable.
+
+13. Validate the logic with business/domain experts
+
+The team emphasized that the knowledge and intelligence must come from the team/business experts, not just the UI.
+
+You need to validate:
+
+* Risk logic
+* Segmentation
+* Dealer perspective
+* Recommended actions
+* Recovery logic
+* Business relevance
+
+The solution should be “airtight” enough that the team can confidently explain why every major recommendation exists.
+
+14. Work iteratively — don’t rush the UI
+
+The feedback was essentially:
+
+* Don’t worry that the first version needs major changes.
+* This is an iterative process.
+* Better to spend more time getting the concept right than quickly polishing an incorrect UI.
+* The target should be a holistic, robust solution, not just something visually impressive.
+
+Immediate next step
+
+The most important action before the next UI build is:
+
+Create a one-page strawman flow showing the complete solution journey:
+
+Risk Model → Customer Segments → Segment Selection → Customer 360 → Next Best Action → Campaign/Outreach → Recovery → Outcome/Impact
+
+Then use that flow to restructure the existing tabs and UI.
